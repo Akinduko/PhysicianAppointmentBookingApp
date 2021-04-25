@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package healthbookingapp;
+package healthbookingapp.model.seeders;
+
+import healthbookingapp.model.*;
+import java.util.HashMap;
+
 
 /**
  *
  * @author olugbengaakinduko
  */
-public class Physician {
+public class TreatmentObj {
+    
     public String id;
     public String name;
-    public Expertise expertise;
-    public Consultation[] consultations;
-    
+    public String physician;
+   
 }

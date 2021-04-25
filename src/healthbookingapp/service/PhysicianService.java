@@ -3,18 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package healthbookingapp;
+package healthbookingapp.service;
+
+import healthbookingapp.model.Physician;
 
 /**
  *
  * @author olugbengaakinduko
  */
-public class Patient {
-    public String id;
-    public String fullName;
-    public String Address;
-    public String phoneNumber;
-    public Boolean isGuest;
-    public Appointment appointment;
-    
+public interface PhysicianService {
+  Physician getPhysicianById (String id); 
+  void  initialisePhysicians(); 
 }
