@@ -7,18 +7,16 @@ package healthbookingapp.helper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.util.List;
 
-import healthbookingapp.model.seeders.ConsultationObj;
-import healthbookingapp.model.seeders.ExpertiseObj;
-import healthbookingapp.model.seeders.PatientObj;
-import healthbookingapp.model.seeders.PhysicianObj;
-import healthbookingapp.model.seeders.RoomObj;
-import healthbookingapp.model.seeders.TreatmentObj;
+import healthbookingapp.model.dto.ConsultationObj;
+import healthbookingapp.model.dto.ExpertiseObj;
+import healthbookingapp.model.dto.PatientObj;
+import healthbookingapp.model.dto.PhysicianObj;
+import healthbookingapp.model.dto.RoomObj;
+import healthbookingapp.model.dto.TreatmentObj;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 /**
  *
@@ -28,14 +26,16 @@ public class Json2ArrayList {
        static Path currentWorkingDir = Paths.get("").toAbsolutePath();
        ObjectMapper mapper = new ObjectMapper();
    
+       
        public  PatientObj[] importPatients () {
-        PatientObj[] patients = null;        
+        PatientObj[] patients = null;  
+        
         try {
 
-         patients  = mapper.readValue(new File(currentWorkingDir+"/src/healthbookingapp/resources/patients.json"), PatientObj[].class);
-            
+         patients  = mapper.readValue(new File(currentWorkingDir+"/resources/patients.json") , PatientObj[].class);
+   
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace();  
         }
         
        return patients;
@@ -47,7 +47,7 @@ public class Json2ArrayList {
          ExpertiseObj[] expertise = null;        
             try {
 
-             expertise  = mapper.readValue(new File(currentWorkingDir+"/src/healthbookingapp/resources/expertise.json"), ExpertiseObj[].class);
+           expertise  = mapper.readValue(new File(currentWorkingDir+"/resources/expertise.json"), ExpertiseObj[].class);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -63,7 +63,7 @@ public class Json2ArrayList {
             
            try {
 
-             consultations  = mapper.readValue(new File(currentWorkingDir+"/src/healthbookingapp/resources/consultations.json"), ConsultationObj[].class);
+             consultations  = mapper.readValue(new File(currentWorkingDir+"/resources/consultations.json"), ConsultationObj[].class);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -78,7 +78,7 @@ public class Json2ArrayList {
             
             try {
 
-              physicians  = mapper.readValue(new File(currentWorkingDir+"/src/healthbookingapp/resources/physicians.json"), PhysicianObj[].class);
+              physicians  = mapper.readValue(new File(currentWorkingDir+"/resources/physicians.json"), PhysicianObj[].class);
 
              } catch (IOException e) {
                  e.printStackTrace();
@@ -93,7 +93,7 @@ public class Json2ArrayList {
             
             try {
                 
-           File json = new File(currentWorkingDir+"/src/healthbookingapp/resources/rooms.json");
+           File json = new File(currentWorkingDir+"/resources/rooms.json");
 
            rooms =  mapper.readValue(json, RoomObj[].class);
            
@@ -111,7 +111,7 @@ public class Json2ArrayList {
             
             try {
 
-              treatments  = mapper.readValue(new File(currentWorkingDir+"/src/healthbookingapp/resources/treatments.json"), TreatmentObj[].class);
+              treatments  = mapper.readValue(new File(currentWorkingDir+"/resources/treatments.json"), TreatmentObj[].class);
 
              } catch (IOException e) {
                  e.printStackTrace();

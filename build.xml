@@ -10,6 +10,10 @@
 <project name="HealthBookingApp" default="default" basedir=".">
     <description>Builds, tests, and runs the project HealthBookingApp.</description>
     <import file="nbproject/build-impl.xml"/>
+
+    <copy todir="dist/resources">
+        <fileset dir="resources"/>
+      </copy>
     <!--
 
     There exist several targets which are by default empty and which can be 

@@ -3,43 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package healthbookingapp.model;
-import java.util.ArrayList;
-import java.util.HashMap;
+package healthbookingapp.model.dto;
+
 
 /**
  *
  * @author olugbengaakinduko
  */
-public class Patient {
-
+public class PatientObj {
+    
     private String id;
     private String fullName;
     private String address;
     private String phoneNumber;
     private Boolean isGuest;
-    private ArrayList<Appointment> appointments = new ArrayList<>();
-    
-    public enum PatientLookup {
-        id,
-        fullName,
-        address,
-        phoneNumber,
-        isGuest
+
+    public PatientObj() {
     }
 
-    public Patient() {
+    public PatientObj(String id, String fullName, String address, String phoneNumber, Boolean isGuest) {
+        this.id = id;
+        this.fullName = fullName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.isGuest = isGuest;
     }
-    
-    public Patient (HashMap<PatientLookup, String> patientObj){
-         
-        this.id = patientObj.get(PatientLookup.id);
-        this.fullName = patientObj.get(PatientLookup.fullName);
-        this.address = patientObj.get(PatientLookup.address);
-        this.phoneNumber = patientObj.get(PatientLookup.phoneNumber);
-        this.isGuest = Boolean.valueOf(patientObj.get(PatientLookup.isGuest));      
-    };  
-    
+        
     public String getId() {
         return id;
     }
@@ -79,13 +68,5 @@ public class Patient {
     public void setIsGuest(Boolean isGuest) {
         this.isGuest = isGuest;
     }
-
-    public ArrayList<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(ArrayList<Appointment> appointments) {
-        this.appointments = appointments;
-    }
- 
+   
 }

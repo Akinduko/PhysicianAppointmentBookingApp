@@ -12,24 +12,81 @@ import java.util.HashMap;
  * @author olugbengaakinduko
  */
 public class Consultation {
+    
+    private String id;
+    private Boolean isGuest;
+    private Date date;
+    private Room room;
+    private Treatment treatment;
+    private Physician physician;
+    public enum ConsultationLookup {
+           id,
+           date,
+           room,
+           isGuest,
+           treatment,
+           appointment
+    } 
+    
+    public Consultation (){
 
- public  enum ConsultationLookup {
-        id,
-        date,
-        room,
-        treatment,
-        appointment
-    }
+    };
     
     public Consultation (HashMap<ConsultationLookup, String> consultationObj){
         this.id = consultationObj.get(ConsultationLookup.id);
         this.date = new Date(consultationObj.get(ConsultationLookup.date));
     };
     
-    public String id;
-    public Date date;
-    public Room room;
-    public Treatment treatment;
-    public Physician physician;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Boolean getIsGuest() {
+        return this.isGuest;
+    }
+
+    public void setIsGuest(Boolean isGuest) {
+        this.isGuest = isGuest;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public Treatment getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(Treatment treatment) {
+        this.treatment = treatment;
+    }
+
+    public Physician getPhysician() {
+        return physician;
+    }
+
+    public void setPhysician(Physician physician) {
+        this.physician = physician;
+    }
+    
+
+ 
         
 }

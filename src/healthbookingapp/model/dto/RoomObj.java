@@ -3,27 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package healthbookingapp.model;
-
-import java.util.HashMap; 
+package healthbookingapp.model.dto;
 
 /**
  *
  * @author olugbengaakinduko
  */
-public class Expertise {
+public class RoomObj {
 
     private String id;
-    private String name;  
+    private String name;   
     
-    public Expertise (HashMap<ExpertiseLookup, String> expertiseObj){
-        this.id = expertiseObj.get(ExpertiseLookup.id);
-        this.name = expertiseObj.get(ExpertiseLookup.name);
-    };
-     
-    public Expertise (){
+    public RoomObj() {
+    }
 
-    };
+    public RoomObj(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public String getId() {
         return id;
@@ -40,10 +37,6 @@ public class Expertise {
     public void setName(String name) {
         this.name = name;
     }
-     
-    public enum ExpertiseLookup {
-        id,
-        name
-    }
-   
+    
+    
 }

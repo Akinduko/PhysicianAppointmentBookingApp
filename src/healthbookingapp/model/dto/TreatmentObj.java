@@ -3,33 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package healthbookingapp.model;
-
-import java.util.HashMap;
-
+package healthbookingapp.model.dto;
 
 /**
  *
  * @author olugbengaakinduko
  */
-public class Treatment {
-
+public class TreatmentObj {
+    
     private String id;
     private String name;
-    private Physician physician;
+    private String physician;
 
-    public enum TreatmentLookup {
-        id,
-        name
+    public TreatmentObj() {
     }
 
-    public Treatment() {
+    public TreatmentObj(String id, String name, String physician) {
+        this.id = id;
+        this.name = name;
+        this.physician = physician;
     }
-   
-    public Treatment (HashMap<TreatmentLookup, String> treatmentObj){        
-        this.id = treatmentObj.get(TreatmentLookup.id);
-        this.name = treatmentObj.get(TreatmentLookup.name);
-    };    
 
     public String getId() {
         return id;
@@ -47,14 +40,12 @@ public class Treatment {
         this.name = name;
     }
 
-    public Physician getPhysician() {
+    public String getPhysician() {
         return physician;
     }
 
-    public void setPhysician(Physician physician) {
+    public void setPhysician(String physician) {
         this.physician = physician;
     }
-     
-
-      
+   
 }

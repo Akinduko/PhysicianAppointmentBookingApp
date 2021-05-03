@@ -244,46 +244,49 @@ public class AppointmentService  {
     
     private  void displayPhysicianSlots(){
    
-           ArrayList<String>[] table = new ArrayList[physicians.size()]; 
+        
            
            for(int i= 0 ; i<physicians.size(); i++){
-               
-              
-               ArrayList localAppointment = new ArrayList();  
-               localAppointment.add(physicians.get(i).getName());
-               
+             
+
                // Fetch Guest Consultations if current user is guest.
                ArrayList<Consultation> consultations = new ArrayList();
-             
+                               
                if(currentUser.getIsGuest()){
                    consultations = 
                         consultationService
                         .availableGuestConsultationsByPhysicianId(physicians.get(i).getId(),
-                        appointmentList); 
+                        appointmentList, currentUser); 
  
                }else {
-                 consultationService
+                consultations =  consultationService
                         .availablePatientConsultationsByPhysicianId(physicians.get(i).getId(),
                         appointmentList);
                }
-               
-                System.out.print("\nAvailable slots:  "+consultations.size());
-          
-              
+     
                if(consultations.size()>0){
-         
+
+               ArrayList<String>[] table = new ArrayList[consultations.size()]; 
+               
                     for(int j= 0 ; j<consultations.size(); j++){
+                       ArrayList localAppointment = new ArrayList();  
+                       localAppointment.add(physicians.get(i).getName()); 
                        localAppointment.add(consultations.get(j).getId());
                        localAppointment.add(consultations.get(j).getRoom().getName());
                        localAppointment.add(consultations.get(j).getTreatment().getName());
                        localAppointment.add(String.valueOf(consultations.get(j).getDate()));
+                       table[j] = localAppointment; 
                      }
-                    table[i] = localAppointment;
+                
+       
+                 
+                 tableLogger.printConsultationSlots(table, i<(physicians.size()-1)); 
                 }
-
+             
+         
             }
       
-           tableLogger.printConsultationSlots(table); 
+
     }
             
     private  void handleChangeAppointmentStatus(){
