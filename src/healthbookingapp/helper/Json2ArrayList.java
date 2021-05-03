@@ -23,7 +23,7 @@ import java.nio.file.Paths;
  * @author olugbengaakinduko
  */
 public class Json2ArrayList {
-       static Path currentWorkingDir = Paths.get("").toAbsolutePath();
+      
        ObjectMapper mapper = new ObjectMapper();
    
        
@@ -31,8 +31,8 @@ public class Json2ArrayList {
         PatientObj[] patients = null;  
         
         try {
-
-         patients  = mapper.readValue(new File(currentWorkingDir+"/resources/patients.json") , PatientObj[].class);
+         patients  = mapper.readValue(new File(String.valueOf(Paths.get("resources","patients.json").toAbsolutePath())) , PatientObj[].class);
+// 
    
         } catch (IOException e) {
             e.printStackTrace();  
@@ -47,7 +47,7 @@ public class Json2ArrayList {
          ExpertiseObj[] expertise = null;        
             try {
 
-           expertise  = mapper.readValue(new File(currentWorkingDir+"/resources/expertise.json"), ExpertiseObj[].class);
+           expertise  = mapper.readValue(new File(String.valueOf(Paths.get("resources","expertise.json").toAbsolutePath())), ExpertiseObj[].class);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -63,7 +63,7 @@ public class Json2ArrayList {
             
            try {
 
-             consultations  = mapper.readValue(new File(currentWorkingDir+"/resources/consultations.json"), ConsultationObj[].class);
+             consultations  = mapper.readValue(new File(String.valueOf(Paths.get("resources","consultations.json").toAbsolutePath())), ConsultationObj[].class);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -78,7 +78,7 @@ public class Json2ArrayList {
             
             try {
 
-              physicians  = mapper.readValue(new File(currentWorkingDir+"/resources/physicians.json"), PhysicianObj[].class);
+              physicians  = mapper.readValue(new File(String.valueOf(Paths.get("resources","physicians.json").toAbsolutePath())), PhysicianObj[].class);
 
              } catch (IOException e) {
                  e.printStackTrace();
@@ -93,7 +93,7 @@ public class Json2ArrayList {
             
             try {
                 
-           File json = new File(currentWorkingDir+"/resources/rooms.json");
+           File json = new File(String.valueOf(Paths.get("resources","rooms.json").toAbsolutePath()));
 
            rooms =  mapper.readValue(json, RoomObj[].class);
            
@@ -111,7 +111,7 @@ public class Json2ArrayList {
             
             try {
 
-              treatments  = mapper.readValue(new File(currentWorkingDir+"/resources/treatments.json"), TreatmentObj[].class);
+              treatments  = mapper.readValue(new File(String.valueOf(Paths.get("resources","treatments.json").toAbsolutePath())), TreatmentObj[].class);
 
              } catch (IOException e) {
                  e.printStackTrace();
